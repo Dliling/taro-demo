@@ -1,0 +1,27 @@
+.swipe-item {
+  width: 100vw;
+  overflow: hidden;
+  line-height: 24PX;
+  height: 24PX;
+  text-align: center;
+  margin-bottom: 10PX;
+
+  &-wrap {
+    width: calc(100vw + 32PX);
+    height: 100%;
+    position: relative;
+  }
+
+  &-left {
+    width: 100vw;
+  }
+
+  &-right {
+    width: 32PX;
+    height: 100%;
+    background: pink;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
