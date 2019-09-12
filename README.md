@@ -16,4 +16,3 @@ taro-demo,附上一些简单的小效果
 
 ##瀑布流效果
 1. 直接读取本地mock数据，启动npm run dev:h5:mock
-2. 连接本地服务进行mock，启动npm run dev:h5
