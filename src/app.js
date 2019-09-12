@@ -15,7 +15,8 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/slide/index',
-      '/pages/share/index'
+      'pages/share/index',
+      'pages/waterFall/index'
     ],
     window: {
       backgroundTextStyle: 'light',

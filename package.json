@@ -20,6 +20,7 @@
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
+    "dev:h5:mock": "WITH_MOCK=1 npm run build:h5 -- --watch",
     "dev:rn": "npm run build:rn -- --watch"
   },
   "author": "",
@@ -38,26 +39,28 @@
     "nervjs": "^1.4.0"
   },
   "devDependencies": {
-    "@types/react": "^16.4.6",
-    "@types/webpack-env": "^1.13.6",
     "@tarojs/plugin-babel": "1.3.0",
     "@tarojs/plugin-csso": "1.3.0",
     "@tarojs/plugin-less": "1.3.0",
     "@tarojs/plugin-uglifyjs": "1.3.0",
     "@tarojs/webpack-runner": "1.3.0",
+    "@types/react": "^16.4.6",
+    "@types/webpack-env": "^1.13.6",
+    "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-eslint": "^8.2.3",
     "eslint": "^5.16.0",
     "eslint-config-taro": "1.3.0",
-    "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-taro": "1.3.0",
+    "express": "^4.17.1",
+    "mocker-api": "^1.7.6",
     "stylelint": "9.3.0",
     "stylelint-config-taro-rn": "1.3.0",
-    "stylelint-taro-rn": "1.3.0",
-    "eslint-plugin-taro": "1.3.0"
+    "stylelint-taro-rn": "1.3.0"
   }
 }

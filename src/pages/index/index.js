@@ -16,6 +16,10 @@ export default class Index extends Component {
     {
       title: '左滑删除',
       navigation: '/pages/slide/index'
+    },
+    {
+      title: '瀑布流',
+      navigation: '/pages/waterFall/index'
     }
   ];
   componentWillMount () { }

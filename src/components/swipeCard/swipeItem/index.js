@@ -70,6 +70,12 @@ export default class SwipeItem extends Component {
     })
   }
 
+  handleDel = () => {
+    this.setState({
+      hasTransition: false
+    });
+  }
+
   render () {
     const { item, index, currentIndex } = this.props
     const { hasTransition } = this.state
@@ -98,7 +104,7 @@ export default class SwipeItem extends Component {
             <View>{item.title}</View>
           </View>
           <View className={`${prefix}-right`}>
-            <View className={`${prefix}-del`}>del</View>
+            <View className={`${prefix}-del`} onClick={this.handleDel}>del</View>
           </View>
         </View>
       </View>
