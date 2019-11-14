@@ -20,6 +20,10 @@ export default class Index extends Component {
     {
       title: '瀑布流',
       navigation: '/pages/waterFall/index'
+    },
+    {
+      title: '骨架屏',
+      navigation: '/pages/skeletonPage/index'
     }
   ];
   componentWillMount () { }
