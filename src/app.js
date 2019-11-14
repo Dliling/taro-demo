@@ -16,7 +16,10 @@ class App extends Component {
       'pages/index/index',
       'pages/slide/index',
       'pages/share/index',
-      'pages/waterFall/index'
+      'pages/waterFall/index',
+      'pages/camera/index',
+      'pages/ripple/index',
+      'pages/skeleton/index'
     ],
     window: {
       backgroundTextStyle: 'light',
