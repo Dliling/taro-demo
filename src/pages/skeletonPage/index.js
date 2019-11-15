@@ -20,11 +20,11 @@ export default class SkeletonPage extends Component {
     }
 
     componentDidMount () {
-        setTimeout(() => {
-            this.setState({
-                showSkeleton: false
-            });
-        }, 3000);
+        // setTimeout(() => {
+        //     this.setState({
+        //         showSkeleton: false
+        //     });
+        // }, 3000);
     }
 
     render () {
@@ -54,7 +54,7 @@ export default class SkeletonPage extends Component {
                             ))
                         }
                     </View>
-                    {/* 自定义组件外层没有元素包裹，否则微信小程序无法识别，但是H5可以识别 */}
+                    {/* 自定义组件外层最好没有元素包裹，否则微信小程序无法识别，但是H5可以识别 */}
                     <List />
                 </View>
             </View>
