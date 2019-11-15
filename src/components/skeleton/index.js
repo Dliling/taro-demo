@@ -17,20 +17,55 @@ export default class Skeleton extends Component {
 
     componentDidMount() {
         const that = this;
-        // 百度小程序目前不支持跨自定义组件的后代选择器
-        // 微信小程序, H5中支持，可修改为如`.${this.props.selector} >>> .${this.props.selector}-radius`
-        Taro.createSelectorQuery().selectAll(`.${this.props.selector} .${this.props.selector}-radius`)
-            .boundingClientRect().exec(rect => {
+        // 百度小程序目前不支持跨自定义组件的后代选择器: >>>
+        // 但是H5使用后代选择器(.the-ancestor .the-descendant)的时候，可以自动识别自定义组件内的后代
+        // 微信小程序支持跨自定义组件的后代选择器(.the-ancestor >>> .the-descendant)，可修改为如`.${this.props.selector} >>> .${this.props.selector}-radius`
+        // if (process.env.TARO_ENV === 'weapp') {
+        //     Taro.createSelectorQuery().selectAll(`.${this.props.selector} >>> .${this.props.selector}-radius`)
+        //         .boundingClientRect().exec(rect => {
+        //             that.setState({
+        //                 radiusList: rect[0]
+        //             });
+        //         });
+        // }
+        // else {
+        //     Taro.createSelectorQuery().selectAll(`.${this.props.selector} .${this.props.selector}-radius`)
+        //     .boundingClientRect().exec(rect => {
+        //         that.setState({
+        //             radiusList: rect[0]
+        //         });
+        //     });
+        // }
+        this.getGraphList(this.props.selector, `${this.props.selector}-radius`)
+            .then(res => {
                 that.setState({
-                    radiusList: rect[0]
+                    radiusList: res
                 });
             });
-        Taro.createSelectorQuery().selectAll(`.${this.props.selector} .${this.props.selector}-rect`)
-            .boundingClientRect().exec(rect => {
+        this.getGraphList(this.props.selector, `${this.props.selector}-rect`)
+            .then(res => {
                 that.setState({
-                    rectList: rect[0]
+                    rectList: res
                 });
             });
+    }
+
+    getGraphList(ancestor, descendant) {
+        const that = this;
+        return new Promise((resolve, reject) => {
+            if (process.env.TARO_ENV === 'weapp') {
+                Taro.createSelectorQuery().selectAll(`.${ancestor} >>> .${descendant}`)
+                    .boundingClientRect().exec(rect => {
+                        resolve(rect[0]);
+                    });
+            }
+            else {
+                Taro.createSelectorQuery().selectAll(`.${ancestor} .${descendant}`)
+                .boundingClientRect().exec(rect => {
+                    resolve(rect[0]);
+                });
+            }     
+        });
     }
 
     render() {
