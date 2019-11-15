@@ -19,15 +19,15 @@ export default class SkeletonPage extends Component {
         systemInfo: Taro.getSystemInfoSync()
     }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                showSkeleton: false
-            });
-        }, 3000);
+    componentDidMount () {
+        // setTimeout(() => {
+        //     this.setState({
+        //         showSkeleton: false
+        //     });
+        // }, 3000);
     }
 
-    render() {
+    render () {
         const {userInfo, list, showSkeleton} = this.state;
         return (
             <View className='container' style={{fontSize: '20PX'}}>
@@ -54,9 +54,8 @@ export default class SkeletonPage extends Component {
                             ))
                         }
                     </View>
-                    {/* <View style={{marginTop: '100PX'}}> */}
-                        <List />
-                    {/* </View> */}
+                    {/* 自定义组件外层没有元素包裹，否则无法识别 */}
+                    <List />
                 </View>
             </View>
         );
